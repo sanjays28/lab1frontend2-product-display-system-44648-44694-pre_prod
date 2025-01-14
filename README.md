@@ -1,1 +1,3 @@
-# lab1frontend2-product-display-system-44648-44694-pre_prod
+# Project Repository
+
+This is the initial README file for the project.
