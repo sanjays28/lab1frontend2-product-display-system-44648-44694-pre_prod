@@ -11,46 +11,69 @@
         <h1>Product Display</h1>
     </header>
     <main>
-        <section class="product-grid" aria-label="Product Grid">
-            <!-- Product Card 1 -->
-            <article class="product-card" aria-labelledby="product1-title">
-                <div class="product-image">
-                    <img src="images/placeholder.jpg" alt="Product 1" width="200" height="200">
-                </div>
-                <div class="product-info">
-                    <h2 id="product1-title" class="product-title">Product 1</h2>
-                    <p class="product-price" aria-label="Price">$99.99</p>
-                    <p class="product-stock" aria-label="Stock Status">In Stock</p>
-                    <button class="product-button" aria-label="Add Product 1 to cart">Add to Cart</button>
-                </div>
-            </article>
-
-            <!-- Product Card 2 -->
-            <article class="product-card" aria-labelledby="product2-title">
-                <div class="product-image">
-                    <img src="images/placeholder.jpg" alt="Product 2" width="200" height="200">
-                </div>
-                <div class="product-info">
-                    <h2 id="product2-title" class="product-title">Product 2</h2>
-                    <p class="product-price" aria-label="Price">$149.99</p>
-                    <p class="product-stock" aria-label="Stock Status">Low Stock</p>
-                    <button class="product-button" aria-label="Add Product 2 to cart">Add to Cart</button>
-                </div>
-            </article>
-
-            <!-- Product Card 3 -->
-            <article class="product-card" aria-labelledby="product3-title">
-                <div class="product-image">
-                    <img src="images/placeholder.jpg" alt="Product 3" width="200" height="200">
-                </div>
-                <div class="product-info">
-                    <h2 id="product3-title" class="product-title">Product 3</h2>
-                    <p class="product-price" aria-label="Price">$199.99</p>
-                    <p class="product-stock" aria-label="Stock Status">Out of Stock</p>
-                    <button class="product-button" aria-label="Add Product 3 to cart" disabled>Out of Stock</button>
-                </div>
-            </article>
-        </section>
+        <div class="table-container">
+            <table class="product-table" aria-label="Product List">
+                <thead>
+                    <tr>
+                        <th scope="col">Product Image</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Stock Status</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Product 1 -->
+                    <tr>
+                        <td data-label="Product Image">
+                            <img src="images/placeholder.jpg" alt="Product 1" width="100" height="100" class="product-image">
+                        </td>
+                        <td data-label="Product Name">
+                            <h2 id="product1-title" class="product-title">Product 1</h2>
+                        </td>
+                        <td class="product-price" data-label="Price" aria-label="Price">$99.99</td>
+                        <td data-label="Stock Status">
+                            <span class="product-stock" aria-label="Stock Status">In Stock</span>
+                        </td>
+                        <td data-label="Action">
+                            <button class="product-button" aria-label="Add Product 1 to cart">Add to Cart</button>
+                        </td>
+                    </tr>
+                    <!-- Product 2 -->
+                    <tr>
+                        <td data-label="Product Image">
+                            <img src="images/placeholder.jpg" alt="Product 2" width="100" height="100" class="product-image">
+                        </td>
+                        <td data-label="Product Name">
+                            <h2 id="product2-title" class="product-title">Product 2</h2>
+                        </td>
+                        <td class="product-price" data-label="Price" aria-label="Price">$149.99</td>
+                        <td data-label="Stock Status">
+                            <span class="product-stock" aria-label="Stock Status">Low Stock</span>
+                        </td>
+                        <td data-label="Action">
+                            <button class="product-button" aria-label="Add Product 2 to cart">Add to Cart</button>
+                        </td>
+                    </tr>
+                    <!-- Product 3 -->
+                    <tr>
+                        <td data-label="Product Image">
+                            <img src="images/placeholder.jpg" alt="Product 3" width="100" height="100" class="product-image">
+                        </td>
+                        <td data-label="Product Name">
+                            <h2 id="product3-title" class="product-title">Product 3</h2>
+                        </td>
+                        <td class="product-price" data-label="Price" aria-label="Price">$199.99</td>
+                        <td data-label="Stock Status">
+                            <span class="product-stock" aria-label="Stock Status">Out of Stock</span>
+                        </td>
+                        <td data-label="Action">
+                            <button class="product-button" aria-label="Add Product 3 to cart" disabled>Out of Stock</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 Product Display. All rights reserved.</p>
