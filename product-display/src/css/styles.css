@@ -1,0 +1,372 @@
+/* CSS Custom Properties for Stock Status */
+:root {
+    /* Stock status colors with proper contrast ratios */
+    --in-stock-color: #1a7740;
+    --in-stock-bg: #e8f5e9;
+    --low-stock-color: #b45309;
+    --low-stock-bg: #fef3c7;
+    --out-stock-color: #b91c1c;
+    --out-stock-bg: #fee2e2;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+header {
+    background-color: #ffffff;
+    padding: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+/* Product Card Styles */
+.product-card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.product-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 1.5rem;
+}
+
+.product-title {
+    font-size: 1.25rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    color: #2ecc71;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.product-stock {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.product-button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.product-button:hover:not([disabled]) {
+    background-color: #2980b9;
+}
+
+.product-button[disabled] {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+/* Stock Status Styles */
+.product-stock {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+    margin: 0.75rem 0;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.product-stock::before {
+    content: '';
+    position: absolute;
+    left: 0.75rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+}
+
+/* In Stock Status */
+article:has(.product-stock:contains("In Stock")) .product-stock {
+    color: var(--in-stock-color);
+    background-color: var(--in-stock-bg);
+    border: 1px solid var(--in-stock-color);
+}
+
+article:has(.product-stock:contains("In Stock")) .product-stock::before {
+    background-color: var(--in-stock-color);
+    box-shadow: 0 0 0 2px var(--in-stock-bg), 0 0 0 3px var(--in-stock-color);
+}
+
+/* Low Stock Status */
+article:has(.product-stock:contains("Low Stock")) .product-stock {
+    color: var(--low-stock-color);
+    background-color: var(--low-stock-bg);
+    border: 1px solid var(--low-stock-color);
+}
+
+article:has(.product-stock:contains("Low Stock")) .product-stock::before {
+    background-color: var(--low-stock-color);
+    box-shadow: 0 0 0 2px var(--low-stock-bg), 0 0 0 3px var(--low-stock-color);
+}
+
+/* Out of Stock Status */
+article:has(.product-stock:contains("Out of Stock")) .product-stock {
+    color: var(--out-stock-color);
+    background-color: var(--out-stock-bg);
+    border: 1px solid var(--out-stock-color);
+}
+
+article:has(.product-stock:contains("Out of Stock")) .product-stock::before {
+    background-color: var(--out-stock-color);
+    box-shadow: 0 0 0 2px var(--out-stock-bg), 0 0 0 3px var(--out-stock-color);
+}
+
+/* Footer Styles */
+footer {
+    background-color: #2c3e50;
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}
+
+/* Accessibility Improvements */
+/* Focus states for interactive elements */
+:focus {
+    outline: 3px solid #3498db;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.4);
+}
+
+.product-button:focus {
+    outline: 3px solid #3498db;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.4);
+}
+
+/* Interactive element states */
+.product-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+.product-button:active::after {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+
+/* Enhanced keyboard navigation indicators */
+.product-card:focus-within {
+    outline: 3px solid #3498db;
+    outline-offset: 4px;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.4);
+}
+
+/* Improved hover states */
+.product-button:hover:not([disabled]) {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .product-button {
+        background-color: #000000;
+        color: #ffffff;
+        border: 2px solid #ffffff;
+    }
+    
+    .product-title,
+    .product-price {
+        color: #000000;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .product-card,
+    .product-image img {
+        transition: none;
+    }
+    
+    .product-card:hover {
+        transform: none;
+    }
+}
+
+/* Responsive Design */
+/* Tablet View */
+@media screen and (max-width: 768px) {
+    main {
+        padding: 1.25rem;
+    }
+    
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.25rem;
+        padding: 0.75rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .product-info {
+        padding: 1.25rem;
+    }
+
+    .product-button {
+        padding: 1rem;
+        min-height: 48px;
+    }
+}
+
+/* Mobile View */
+@media screen and (max-width: 480px) {
+    header {
+        padding: 1rem 1.25rem;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0.5rem;
+    }
+    
+    .product-card {
+        margin-bottom: 0.5rem;
+    }
+
+    .product-info {
+        padding: 1.25rem;
+    }
+    
+    .product-title {
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .product-price {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .product-stock {
+        padding: 0.75rem 1.25rem;
+        margin: 1rem 0;
+    }
+
+    .product-button {
+        padding: 1rem;
+        min-height: 48px;
+        margin-top: 1rem;
+    }
+}
+
+/* Touch-friendly targets for mobile */
+@media (hover: none) and (pointer: coarse) {
+    .product-button {
+        min-height: 48px;
+        padding: 1rem;
+    }
+
+    .product-card {
+        margin-bottom: 1rem;
+    }
+
+    .product-info {
+        padding: 1.25rem;
+    }
+}

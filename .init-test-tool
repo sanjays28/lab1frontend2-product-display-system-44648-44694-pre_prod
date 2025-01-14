@@ -1,0 +1,4 @@
+{
+    "command": "echo 'This is a static HTML/CSS project that uses manual testing as specified in requirements. No automated tests available.'",
+    "working_directory": "/home/kavia/workspace/lab1frontend2-product-display-system-44648-44694-pre_prod/product-display"
+}

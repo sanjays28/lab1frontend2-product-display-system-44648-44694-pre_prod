@@ -1,0 +1,4 @@
+{
+    "command": "python3 -m http.server 8000",
+    "working_directory": "/home/kavia/workspace/lab1frontend2-product-display-system-44648-44694-pre_prod/product-display/src"
+}
